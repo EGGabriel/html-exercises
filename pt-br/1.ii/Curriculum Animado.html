@@ -10,11 +10,9 @@
   var ie4up = (document.all) ? 1 : 0;
   var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
 
-
 function iecompattest(){
 return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
 }
-
 
   var dx, xp, yp;    // coordinate and position variables
   var am, stx, sty;  // amplitude and step variables
@@ -27,7 +25,6 @@ return (document.compatMode && document.compatMode!="BackCompat")? document.docu
     doc_width = iecompattest().clientWidth;
     doc_height = iecompattest().clientHeight;
   }
-
 
   dx = new Array();
   xp = new Array();
@@ -52,7 +49,6 @@ if (ie4up||ns6up) {
     }
   }
 
-
   function snowIE_NS6() {  // IE and NS6 main animation function
     doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
 doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
@@ -71,21 +67,16 @@ doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHei
     snowtimer=setTimeout("snowIE_NS6()", 10);
   }
 
-
 function hidesnow(){
 if (window.snowtimer) clearTimeout(snowtimer)
 for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
 }
-
-
-
 
 if (ie4up||ns6up){
     snowIE_NS6();
 if (hidesnowtime>0)
 setTimeout("hidesnow()", hidesnowtime*1000)
 }
-
 
 </script>
 <head>
@@ -95,7 +86,7 @@ setTimeout("hidesnow()", hidesnowtime*1000)
 <body background="picture/bg.jpg" bgproperties="fixed">
     <center>
         
-	    <marquee direction=left scrollamount=10><font size=20 face="verdana" color=black><b>Curriculum Vitae Online!</b></font></marquee><br>
+	      <font size=20 face="verdana" color=black><b>Curriculum Vitae Online!</b></font><br>
         <img src = "picture/separadorC.png">    
         </br> <font size=30>Edson Gabriel Pereira Soares</font> </br>
         <img src = "picture/separadorB.png">  </br>  
@@ -121,8 +112,6 @@ setTimeout("hidesnow()", hidesnowtime*1000)
         <font size=6 face="times new roman"><b><i>Objetivo</i></b></font> </br>___________________________________</br> Atuar na área de programaçao/analise de software</br></br>
         <font size=6 face="times new roman"><b><i>Perfil Profissional</i></b></font> </br>___________________________________</br> Alta capacidade de cumprir prazos, Disponibilidade de horários, viagens e mudança, Prática em
                 solucionar conflitos.</br></br>
-
-                
         <font size=6 face="times new roman"><b><i>Escolaridade</i></b></font></br>___________________________________</br>  <font size=3><b> Escola Estadual Monsenhor José Paulino </b></font></br> Ensino Médio Completo </br> Jan/2012 a Dez/2014</br></br>
                 <font size=3><b> Universidade Vale do Sapucaí </b></font>    </br> Sistema de Informação </br> Cursando 5° Período - Jan/2015 a Dez/2018</br>
         <font size=6 face="times new roman"><b><i>Cursos de Aperfeiçoamento</i></b></font> </br>___________________________________</br> Informática Básica, Informatica Intermediaria, Informática Avançado, Manutençao de Computadores.</br></br>
