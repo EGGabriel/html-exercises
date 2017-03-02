@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript">
+
+
+  //Configure below to change URL path to the snow image
+  var snowsrc= "http://2.ii.gl/byGz__HJK.gif"
+  // Configure below to change number of snow to render
+  var no = 250;
+  // Configure whether snow should disappear after x seconds (0=never):
+  var hidesnowtime = 0;
+  // Configure how much snow should drop down before fading ("windowheight" or "pageheight")
+  var snowdistance = "pageheight";
+
+
+///////////Stop Config//////////////////////////////////
+
+
+  var ie4up = (document.all) ? 1 : 0;
+  var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+
+  var dx, xp, yp;    // coordinate and position variables
+  var am, stx, sty;  // amplitude and step variables
+  var i, doc_width = 800, doc_height = 600; 
+  
+  if (ns6up) {
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
+  } else if (ie4up) {
+    doc_width = iecompattest().clientWidth;
+    doc_height = iecompattest().clientHeight;
+  }
+
+
+  dx = new Array();
+  xp = new Array();
+  yp = new Array();
+  am = new Array();
+  stx = new Array();
+  sty = new Array();
+  snowsrc=(snowsrc.indexOf("dynamicdrive.com")!=-1)? "snow.gif" : snowsrc
+  for (i = 0; i < no; ++ i) {  
+    dx[i] = 0;                        // set coordinate variables
+    xp[i] = Math.random()*(doc_width-50);  // set position variables
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;         // set amplitude variables
+    stx[i] = 0.02 + Math.random()/10; // set step variables
+    sty[i] = 0.7 + Math.random();     // set step variables
+if (ie4up||ns6up) {
+      if (i == 0) {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+      } else {
+        document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+      }
+    }
+  }
+
+
+  function snowIE_NS6() {  // IE and NS6 main animation function
+    doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+    for (i = 0; i < no; ++ i) {  // iterate for every dot
+      yp[i] += sty[i];
+      if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+      }
+      dx[i] += stx[i];
+      document.getElementById("dot"+i).style.top=yp[i]+"px";
+      document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";  
+    }
+    snowtimer=setTimeout("snowIE_NS6()", 10);
+  }
+
+
+function hidesnow(){
+if (window.snowtimer) clearTimeout(snowtimer)
+for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+}
+
+
+
+
+if (ie4up||ns6up){
+    snowIE_NS6();
+if (hidesnowtime>0)
+setTimeout("hidesnow()", hidesnowtime*1000)
+}
+
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae Online</title>
+</head>
+<body background="picture/bg.jpg" bgproperties="fixed">
+    <center>
+        
+	    <marquee direction=left scrollamount=10><font size=20 face="verdana" color=black><b>Curriculum Vitae Online!</b></font></marquee><br>
+        <img src = "picture/separadorC.png">    
+        </br> <font size=30>Edson Gabriel Pereira Soares</font> </br>
+        <img src = "picture/separadorB.png">  </br>  
+        <img src = "picture/1.jpg"></br>
+
+        <!-- /Redes Sociais by EG -->
+        <a href="https://www.facebook.com/eggabrielps"><img src="picture/facebook.jpg"  style="opacity:0.5" onmouseover="style.opacity=1" onmouseout="style.opacity=0.5" width="50" height="50" alt=""></a>
+        <a href="https://twitter.com/EGGabrielP"><img src="picture/twitter.jpg"  style="opacity:0.5" onmouseover="style.opacity=1" onmouseout="style.opacity=0.5" width="50" height="50" alt=""></a>
+        <a href="https://www.youtube.com/channel/UC7ykaaBDueSMLlJyblYoe-g"><img src="picture/youtube.jpg"  style="opacity:0.5" onmouseover="style.opacity=1" onmouseout="style.opacity=0.5" width="50" height="50" alt=""></a>
+        <a href="https://www.instagram.com/eggabrielps/"><img src="picture/instagram.jpg"  style="opacity:0.5" onmouseover="style.opacity=1" onmouseout="style.opacity=0.5" width="50" height="50" alt=""></a>
+        <!-- /Termina Redes Sociais -->  
+        </center></br>
+
+    <font color=white>
+        <b>Nome:</b> Edson Gabriel Pereira Soares </br>
+        <b>Endereço:</b> Rua Francisco jose pereira, Centro</br>
+        <b>Cidade:</b> Espírito Santo Do Dourado /MG</br>
+        <b>Idade:</b> 19 anos</br>
+        <b>Telefone:</b> (35) 9 9866-3400</br>
+        <b>E-mail:</b> ps.eggabriel@gmail.com</br></br></br>
+        
+        <font size=6 face="times new roman"><b><i>Cargo Pretendido:</i></b></font> Estagiário</br></br>
+        <font size=6 face="times new roman"><b><i>Objetivo</i></b></font> </br>___________________________________</br> Atuar na área de programaçao/analise de software</br></br>
+        <font size=6 face="times new roman"><b><i>Perfil Profissional</i></b></font> </br>___________________________________</br> Alta capacidade de cumprir prazos, Disponibilidade de horários, viagens e mudança, Prática em
+                solucionar conflitos.</br></br>
+
+                
+        <font size=6 face="times new roman"><b><i>Escolaridade</i></b></font></br>___________________________________</br>  <font size=3><b> Escola Estadual Monsenhor José Paulino </b></font></br> Ensino Médio Completo </br> Jan/2012 a Dez/2014</br></br>
+                <font size=3><b> Universidade Vale do Sapucaí </b></font>    </br> Sistema de Informação </br> Cursando 5° Período - Jan/2015 a Dez/2018</br>
+        <font size=6 face="times new roman"><b><i>Cursos de Aperfeiçoamento</i></b></font> </br>___________________________________</br> Informática Básica, Informatica Intermediaria, Informática Avançado, Manutençao de Computadores.</br></br>
+        <font size=6 face="times new roman"><b><i>Informações Adicionais</i></b></font> </br>___________________________________</br> Lecionava Aulas de Informática Básica, Informatica Intermediaria, Informática Avançado na
+                empresa F1 Informática como Estagiário.</br></br>
+        
+</body>
+</html>
