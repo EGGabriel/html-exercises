@@ -1,0 +1,18 @@
+@font-face{
+    font-family: 'Martel';
+    src: url('../fonts/Martel.eot');
+  src: url('../fonts/Martel?#iefix') format('embedded-opentype'),
+    url('../fonts/Martel.svg#Locaweb-Icons') format('svg'),
+    url('../fonts/Martel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2{
+    font-family:'Martel';
+}
+
+body {
+    font-family: tahoma;
+    letter-spacing: -1px;
+}
